@@ -1,0 +1,6 @@
+<%= f.input :member_ids,
+            label: 'Components',
+            collection: @components,
+            input_html: { multiple: true },
+            required: false,
+            include_blank: true %>

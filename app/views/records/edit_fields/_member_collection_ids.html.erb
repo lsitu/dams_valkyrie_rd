@@ -1,0 +1,6 @@
+<%= f.input :member_collection_ids,
+            label: 'Child Collections',
+            collection: @collections,
+            input_html: { multiple: true },
+            required: false,
+            include_blank: true %>

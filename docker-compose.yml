@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    working_dir: /home/damsvalkyrie/app
+    command: bundle exec puma
+    volumes:
+      - ./:/home/damsvalkyrie/app
+    depends_on:
+      - database
+    environment:
+      DATABASE_URL: postgres://postgres@database
+    stdin_open: true
+    tty: true
+
+  database:
+    image: postgres:10.5-alpine

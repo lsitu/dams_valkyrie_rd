@@ -1,0 +1,5 @@
+<%= f.input :publisher_ids,
+            label: 'Publisher',
+            collection: @agents,
+            input_html: { multiple: true },
+            include_blank: true %><br>

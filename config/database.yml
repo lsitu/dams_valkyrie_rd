@@ -5,21 +5,34 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: sqlite3
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+variables:
+  statement_timeout: 5000
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  database: postgres
+  host: <%= ENV.fetch('APPS_DHH_DEV_DB') {'localhost'} %>
+  username: <%= ENV.fetch('APPS_DHH_DEV_DB_USER') {'dams'}%>
+  password: <%= ENV.fetch('APPS_DHH_DEV_DB_PASS') {'dams'}%>
+
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test.sqlite3
+  database: damspas_test
+  host: <%= ENV.fetch('APPS_DHH_DEV_DB') {'localhost'} %>
+  username: <%= ENV.fetch('APPS_DHH_DEV_DB_USER') {'dams'}%>
+  password: <%= ENV.fetch('APPS_DHH_DEV_DB_PASS') {'dams'}%>
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  database: <%= ENV.fetch('APPS_DHH_PROD_DB') {'default'}%>
+  host: <%= ENV.fetch('APPS_DHH_PROD_DB_HOST') {'default'}%>
+  username: <%= ENV.fetch('APPS_DHH_PROD_DB_USER') {'default'}%>
+  password: <%= ENV.fetch('APPS_DHH_PROD_DB_PASS') {'default'}%>

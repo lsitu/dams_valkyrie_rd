@@ -5,12 +5,14 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'simple_form'
 gem 'valkyrie'
+gem 'hydra-role-management'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+#gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -35,11 +37,15 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
+  gem "bixby"
+  gem "coveralls"
+  gem "dotenv-rails"
+  gem "factory_bot_rails"
+  gem "pdf-reader", github: "yob/pdf-reader"
+  gem "pry-byebug"
+  gem "pry-rails"
+  gem "rails-controller-testing"
+  gem "rspec-rails", "~> 3.5"
 end
 
 group :development do

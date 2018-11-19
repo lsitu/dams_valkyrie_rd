@@ -1,5 +1,5 @@
 development:
-  metadata_adapter: memory
+  metadata_adapter: postgres
   storage_adapter: disk
 
 test:

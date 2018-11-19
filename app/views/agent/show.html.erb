@@ -1,0 +1,24 @@
+<h1>Agent#show</h1>
+<div id="content">
+  <table class="table table-striped agent attributes">
+    <thead>
+      <tr align="left"><th>Attribute name</th><th>Attribute values</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Label: </td><td><%= @model.label.first %></td><tr>
+      <% if @model.alternateLabel.size() > 0 %>
+        <tr><td>Alternate Label: </td><td><%= @model.alternateLabel.first %></td><tr>
+      <% end %>
+      <% if @model.orcid.size() > 0 %>
+        <tr><td>Orcid: </td><td><%= @model.orcid.first %></td><tr>
+      <% end %>
+      <% if @model.identifier.size() > 0 %>
+        <tr><td>Identifier: </td><td><%= @model.identifier.first %></td><tr>
+      <% end %>
+      <% if @model.type.size() > 0 %>
+        <tr><td>Type: </td><td><%= @model.type.first %></td><tr>
+      <% end %>
+    </tbody>
+  </table>
+  <button type="button" onclick="document.location='<%= edit_agent_path @model %>'">Edit</button>
+</div>

@@ -1,0 +1,15 @@
+<h2><%= form_title(params) %></h2>
+<%= simple_form_for @model do |f| %>
+<div class="row">
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="metadata">
+        <div class="form-tab-content">
+          <%= render "form_metadata", f: f %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= f.button :submit %>
+<% end %>
+

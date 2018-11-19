@@ -1,0 +1,3 @@
+  <% (@model.primary_terms).each do |field| %>
+    <%= render "records/edit_fields/#{field}", f: f %>
+  <% end %>

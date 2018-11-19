@@ -1,0 +1,31 @@
+form {
+  label {
+    font-weight: bold;
+    padding-right: 5px;
+    width: 120px;
+    display: inline-block;
+    vertical-align: top;
+
+    abbr {
+      font-weight: normal;
+      color: red;
+    }
+  }
+
+  input, select {
+    width: 200px;
+  }
+
+  label.optional {
+    padding-left: 12px;
+    width: 108px;
+  }
+
+  label, input, select { margin-bottom: 7px; }
+}
+
+
+#savewidget, .btn {
+  position: sticky;
+  margin-top: 20px;
+}

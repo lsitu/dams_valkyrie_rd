@@ -1,0 +1,5 @@
+<%= f.input :creator_ids,
+            label: 'Creator',
+            collection: @agents,
+            input_html: { multiple: true },
+            include_blank: true %><br>

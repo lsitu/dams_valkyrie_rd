@@ -1,0 +1,51 @@
+<h1>Object#show</h1>
+<div id="content">
+  <table class="table table-striped agent attributes">
+    <thead>
+      <tr align="left"><th>Attribute name</th><th>Attribute values</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Title: </td><td><%= @model.title.first %></td></tr>
+      <% if @model.date_created.size() > 0 %>
+        <tr><td>Date Created: </td><td><%= @model.date_created.first %></td></tr>
+      <% end %>
+
+      <% if @model.creator_ids.size() > 0 %>
+        <tr><td valign="top">Publisher: </td><td>
+          <% @model.creator_ids.each do |creator_id| %>
+            <% @agents.each do |rec| %>
+              <% if (rec.id.to_s == creator_id) %>
+                <div><%= link_to rec.label.first, agent_path(rec.id) %></div>
+              <% end %>
+            <% end %>
+          <% end %>
+        </td></tr>
+      <% end %>
+
+      <% if @model.member_of_collection_ids.size() > 0 %>
+        <tr><td valign="top">Collections: </td><td>
+          <% @model.member_of_collection_ids.each do |member_id| %>
+            <% @collections.each do |rec| %>
+              <% if (rec.id.to_s == member_id) %>
+                <div><%= link_to rec.title.first, collection_path(rec.id) %></div>
+              <% end %>
+            <% end %>
+          <% end %>
+        </td></tr>
+      <% end %>
+
+      <% if @model.member_ids.size() > 0 %>
+        <tr><td valign="top">Components: </td><td>
+          <% @model.member_ids.each do |member_id| %>
+            <% @components.each do |rec| %>
+              <% if (rec.id.to_s == member_id) %>
+                <div><%= link_to rec.title.first, object_resource_path(rec.id) %></div>
+              <% end %>
+            <% end %>
+          <% end %>
+        </td></tr>
+      <% end %>
+    </tbody>
+  </table>
+  <button type="button" onclick="document.location='<%= edit_object_resource_path @model %>'">Edit</button>
+</div>
